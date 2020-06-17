@@ -1,0 +1,28 @@
+:root{
+  scroll-behavior: smooth;
+}
+.sidepadding{
+  padding: 0px 20px;
+}
+#searchform{
+  position: relative;
+}
+#searchresults{
+  position: absolute;
+  margin-top: 0;
+  background: white;
+  width: calc(100% - 22px);
+  transition: all 0.3s ease;
+  clip-path: inset(0% 0% 100% 0%);
+  box-sizing: border-box;
+  max-height: 180px;
+  overflow: auto;
+}
+#searchresults.searching{
+  clip-path: inset(0% 0% 0% 0%);
+}
+@media only screen and (max-width : 992px) {
+  .sidepadding{
+    padding: 0px;
+  }
+}
