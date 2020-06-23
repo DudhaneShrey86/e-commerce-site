@@ -1,0 +1,17 @@
+:root{
+  scroll-behavior: smooth;
+}
+.sidepadding{
+  padding: 0px 20px;
+}
+header, main, footer {
+  padding-left: 300px;
+}
+@media only screen and (max-width : 992px) {
+  .sidepadding{
+    padding: 0px;
+  }
+  header, main, footer {
+    padding-left: 0;
+  }
+}

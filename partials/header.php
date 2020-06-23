@@ -1,5 +1,4 @@
 <header>
-
   <nav>
     <div class="nav-wrapper row sidepadding">
       <a href="#" data-target="sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
