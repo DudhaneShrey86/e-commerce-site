@@ -1,6 +1,9 @@
 :root{
   scroll-behavior: smooth;
 }
+body{
+  min-height: 100vh;
+}
 .sidepadding{
   padding: 0px 20px;
 }
@@ -12,17 +15,72 @@
   margin-top: 0;
   background: white;
   width: calc(100% - 22px);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   clip-path: inset(0% 0% 100% 0%);
   box-sizing: border-box;
   max-height: 180px;
   overflow: auto;
+  z-index: 101;
 }
 #searchresults.searching{
   clip-path: inset(0% 0% 0% 0%);
 }
+.marginall *{
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+}
+.nopaddingall .card-image{
+  padding: 0;
+}
+.grid > .col{
+  padding: 0;
+}
+.grid .card{
+  margin: 10px 5px;
+  /* margin: 5px; */
+}
+.grid .card img{
+  transition: all 0.2s ease;
+  filter: contrast(100%);
+}
+.grid .card img:hover{
+  filter: contrast(90%);
+}
+.grid .divider{
+  grid-column: 1/2;
+}
+#breadcrumbdiv{
+  border-bottom: 1px solid #e0e0e0;
+}
+#breadcrumbdiv .nav-wrapper{
+  padding: 0;
+}
+#breadcrumbdiv a, #breadcrumbdiv a:before{
+  color: #3f51b5;
+  font-size: 1em !important;
+}
+.seeall{
+  font-weight: lighter;
+}
+.producttitle{
+  height: 40px;
+  overflow: auto;
+}
 @media only screen and (max-width : 992px) {
   .sidepadding{
     padding: 0px;
+  }
+  .nopaddingall .card-content, .nopaddingall .card-action{
+    padding: 12px 16px;
+  }
+  .producttitle{
+    height: auto;
+    overflow: auto;
+  }
+  #lasta{
+    vertical-align: text-top;
+    display: inline-flex;
+    line-height: 20px;
+    height: 20px;
   }
 }

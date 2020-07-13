@@ -1,11 +1,33 @@
 :root{
   scroll-behavior: smooth;
 }
+body{
+  min-height: 100vh;
+}
 .sidepadding{
   padding: 0px 20px;
 }
 header, main, footer {
   padding-left: 300px;
+}
+.rightonlarge{
+  text-align: right;
+}
+.marginbottom{
+  margin-bottom: 10px;
+}
+.marginall *{
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
+}
+.noborder{
+  border: 0;
+}
+.toptoast{
+
+}
+#nofound{
+  display: none;
 }
 @media only screen and (max-width : 992px) {
   .sidepadding{
@@ -13,5 +35,8 @@ header, main, footer {
   }
   header, main, footer {
     padding-left: 0;
+  }
+  .rightonlarge{
+    text-align: left;
   }
 }

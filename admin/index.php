@@ -1,7 +1,7 @@
 <?php
   require '.././conn.php';
   if(isset($_SESSION['curuser']) && !empty($_SESSION['curuser'])){
-
+    header("Location: ./addproducts.php");
   }
   else{
     header("Location: ./login.php");
@@ -18,7 +18,7 @@
   <body>
     <?php include('.././partials/adminheader.php'); ?>
     <main>
-      
+
     </main>
     <?php include('.././partials/adminjslinks.php') ?>
   </body>

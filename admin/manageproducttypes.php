@@ -1,7 +1,17 @@
 <?php
 require '.././conn.php';
 if(isset($_SESSION['curuser']) && !empty($_SESSION['curuser'])){
-
+  $res = "";
+  $query = "SELECT `id`, `name` FROM `type`";
+  $qr = mysqli_query($mysqli, $query);
+  if(mysqli_num_rows($qr) == 0){
+    $res = '<li class="collection-item"><p>No Product Types Found!</p></li>';
+  }
+  else{
+    while($row = mysqli_fetch_assoc($qr)){
+      $res .= '<li class="collection-item row parenttofind" data-id="'.$row['id'].'"><p class="col s12">Product Type Name: <b>'.$row['name'].'</b></p><div class="col s12 deletebuttondiv"><a href="./editproducttypes.php?typeid='.$row['id'].'" class="btn waves-effect waves-light editbutton">Edit</a><button class="btn waves-effect waves-light red darken-1 deletebutton" data-id="'.$row['id'].'" data-tablename="type" onclick="deleteitem($(this))">Delete</button></div></li>';
+    }
+  }
 }
 else{
   header("Location: ./login.php");
@@ -14,6 +24,7 @@ else{
   <meta charset="utf-8">
   <title>Admin Page</title>
   <?php include('.././partials/admincsslinks.php') ?>
+  <link rel="stylesheet" href=".././css/manageusers.css">
 </head>
 <body>
   <?php include('.././partials/adminheader.php'); ?>
@@ -29,13 +40,20 @@ else{
           <div class="divider">
 
           </div>
-          <div class="row">
-            <div class="col s12" id="addtypes">
-              <p class="flow-text">Adding New Product Type</p>
-              <form action="./manageproducttypes.php" method="post" onsubmit="addtags()">
+          <div class="row" id="addtypes">
+            <div class="col s12">
+              <p class="col s12 flow-text">Adding New Product Type</p>
+              <form class="col s12" action="./addproducttypes.php" method="post">
+                <?php
+                if(isset($_SESSION['errormsg']) && !empty($_SESSION['errormsg'])){
+                  ?>
+                  <p class="flow-text <?php echo $_SESSION['classes'] ?> darken-1" id="errortext"><?php echo $_SESSION['errormsg'];?></p>
+                  <?php
+                }
+                ?>
                 <div class="row">
                   <div class="input-field col s12">
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
                     <label for="name">Name</label>
                     <span class="helper-text"></span>
                   </div>
@@ -45,8 +63,13 @@ else{
                 </div>
               </form>
             </div>
-            <div class="col s12" id="managetypes">
-              <p class="flow-text">Manage Product Type</p>
+          </div>
+          <div class="row" id="managetypes">
+            <div class="col s12">
+              <p class="flow-text col s12">Manage Product Type</p>
+              <ul class="collection">
+                <?php echo $res; ?>
+              </ul>
             </div>
           </div>
         </div>
@@ -54,7 +77,6 @@ else{
     </div>
   </main>
   <?php include('.././partials/adminjslinks.php') ?>
-  <script src=".././js/manageproducttypes.js" charset="utf-8"></script>
 </body>
 </html>
 <?php

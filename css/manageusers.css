@@ -1,0 +1,11 @@
+.deletebuttondiv{
+  text-align: right;
+}
+.deletebuttondiv>*{
+  margin-right: 10px;
+}
+@media only screen and (max-width : 992px) {
+  .deletebuttondiv{
+    text-align: left;
+  }
+}

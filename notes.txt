@@ -1,0 +1,4 @@
+
+
+the images uploaded should be preferably 512 x 384 px
+images to be png with white background
