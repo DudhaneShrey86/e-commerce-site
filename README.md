@@ -3,12 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation Guide</title>
-    <style media="screen">
-      li{
-        margin: 5px auto;
-      }
-    </style>
   </head>
   <body>
     <h1>Basic Ecommerce Template - Installation Guide</h1>
