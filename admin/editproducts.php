@@ -16,7 +16,7 @@ if(isset($_SESSION['curuser']) && !empty($_SESSION['curuser'])){
   else{
     header("Location: ./manageproducts.php");
   }
-  $query = "SELECT `name`, `tags` FROM `type`";
+  $query = "SELECT `name` FROM `type`";
   $qr = mysqli_query($mysqli, $query);
   $res = "";
   if(mysqli_num_rows($qr) == 0){
@@ -25,10 +25,10 @@ if(isset($_SESSION['curuser']) && !empty($_SESSION['curuser'])){
   else{
     while($row = mysqli_fetch_assoc($qr)){
       if($row['name'] == $row1['type']){
-        $res .= "<option value='".$row['name']."|".$row['tags']."' selected>".$row['name']."</option>";
+        $res .= "<option value='".$row['name']."' selected>".$row['name']."</option>";
       }
       else{
-        $res .= "<option value='".$row['name']."|".$row['tags']."'>".$row['name']."</option>";
+        $res .= "<option value='".$row['name']."'>".$row['name']."</option>";
       }
     }
   }
@@ -90,7 +90,7 @@ else{
                 <small>Some pre-defined tags will be added to the product</small>
               </div>
               <div class="input-field col s12">
-                <input type="text" name="tags" id="tags" required class="validate" value="<?php echo $row1['tags']; ?>">
+                <input type="text" name="tags" id="tags" required class="validate" value="">
                 <span class="helper-text" data-error="Required*">Tags</span>
               </div>
               <div class="input-field col s12">

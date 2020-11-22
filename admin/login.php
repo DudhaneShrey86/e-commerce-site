@@ -25,18 +25,21 @@
     <div class="container row">
       <br>
       <form class="col s12 l6 offset-l3 card row" action="./checklogin.php" method="post">
-        <p class="col s12 flow-text">Admin Login</p>
+        <p class="col s12 flow-text">Admin's Login</p>
         <div class="col s12 divider"></div>
         <p class="col s12 center red-text"><?php echo $_SESSION['errormsg'] ?? '' ?></p>
         <div class="col s12 input-field">
+          <i class="material-icons prefix">account_box</i>
           <input type="text" name="username" id="username" required>
           <label for="username">Username</label>
         </div>
         <div class="col s12 input-field">
+          <i class="material-icons prefix">https</i>
           <input type="password" name="password" id="password" required>
           <label for="password">Password</label>
         </div>
-        <div class="col s12 input-field">
+        <div class="col s12 input-field center">
+          <br>
           <button class="btn waves-effect waves-light">Login</button>
         </div>
       </form>
